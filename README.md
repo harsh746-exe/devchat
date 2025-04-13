@@ -25,6 +25,10 @@ devchat/
 - **Workflow Automation**: Create and run custom coding workflows
 - **Configuration Management**: Easy setup and customization
 
+## Credits
+
+This project is based on the original [DevChat](https://github.com/devchat-ai/devchat) project by DevChat AI. We extend our gratitude to the original authors and contributors for their work.
+
 ## Installation
 
 1. Install Poetry if you haven't already:

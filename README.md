@@ -1,105 +1,133 @@
-<div align="center">
+# DevChat
 
-![devchat](https://github.com/devchat-ai/devchat/assets/592493/f39979fe-fe32-410b-bf9d-2118ac8ea3d5)
+DevChat is an AI-powered coding assistant that helps developers write better code through intelligent workflows and chat-based interactions.
 
-# DevChat: Intelligent Scripts that Streamline Your Dev Workflows
+## Project Structure
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![CircleCI](https://circleci.com/gh/devchat-ai/devchat/tree/main.svg?style=shield)](https://circleci.com/gh/devchat-ai/devchat/tree/main)
-[![GitHub license](https://img.shields.io/github/license/devchat-ai/devchat.svg)](https://github.com/devchat-ai/devchat/blob/main/LICENSE)
-[![Downloads](https://pepy.tech/badge/devchat)](https://pepy.tech/project/devchat)
-[![PyPI version](https://badge.fury.io/py/devchat.svg)](https://badge.fury.io/py/devchat)
-[![Discord Chat](https://img.shields.io/discord/1106908489114206309?logo=discord)](https://discord.gg/9t3yrbBUXD)
+```
+devchat/
+├── src/                    # Main source code
+├── tests/                  # Test files
+├── examples/              # Example workflows and usage
+├── scripts/               # Utility scripts
+├── workflow/             # Workflow definitions
+├── .github/              # GitHub Actions workflows
+├── pyproject.toml        # Project dependencies (Poetry)
+├── poetry.lock          # Lock file for dependencies
+└── README.md            # Project documentation
+```
 
-### Harness AI-Powered Scripts in Your IDE with a Dynamic Chat GUI
+## Features
 
-#### 🧩 Develop AI-powered scripts in a unified framework with minmized efforts to handle IDEs and LLMs.
+- **Code Analysis**: Analyze Python code for complexity, style, and maintainability
+- **AI-Powered Assistance**: Get help with coding questions and problems
+- **Test Generation**: Automatically generate unit tests for your code
+- **Workflow Automation**: Create and run custom coding workflows
+- **Configuration Management**: Easy setup and customization
 
-#### 🛠️ Tailor the AI coding assistant to align perfectly with your specific needs.
+## Installation
 
-#### ✨ Elevate your text chats with a dynamic, Markdown-rendered GUI for enhanced interaction.
+1. Install Poetry if you haven't already:
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
 
-</div>
+2. Clone the repository:
+```bash
+git clone https://github.com/yourusername/devchat.git
+cd devchat
+```
 
-## What is DevChat?
-
-DevChat is an open-source workflow engine that enables developers to craft scripts for:
-- Engaging with users through a chat panel within their IDEs, facilitating the completion of development tasks.
-- Creating intelligent, automated workflows for these tasks, utilizing the full potential of various large language models (LLMs).
-
-DevChat combines the flexibility of script writing, the cutting-edge capabilities of latest AI models, and an enriched user experience through intuitive chat GUI.
-
-## Why DevChat?
-
-While numerous AI coding tools exist, many still struggle to adeptly handle nuanced scenarios inherent in bespoke development processes. For instance, your team might adhere to a specific coding format that existing products don't support configuration for. Or, you desire an automated workflow to run tests and, upon encountering an error, allow AI to attempt a fix, but only once to avoid likely subsequent failures. Such specific functionalities are often not fully realized in available products.
-
-At its core, we believe that the creativity and productivity of developers are yet to be fully unleashed. Our aim with DevChat is to simplify the integration of AI in software development to the level of writing a script, thereby unlocking new possibilities for developers.
-
-## Showcase
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=ucHdcEwp1E0" target="_blank">
- <img src="http://img.youtube.com/vi/ucHdcEwp1E0/mqdefault.jpg" alt="Watch the video" width="320" height="180" border="10" />
-</a>
-
-Source code of the intelligent scripts in the above video:
-- Generate unit tests of a function: [/unit_tests](https://github.com/devchat-ai/workflows/tree/main/unit_tests).
-- Write a well-formatted commit message: [/commit](https://github.com/devchat-ai/workflows/tree/main/commit).
-- Automatically rename poorly-named local variables for improved readability: [/refactor.names](https://github.com/devchat-ai/workflows/tree/main/refactor/names).
-
-## Core Features
-
-### IDE Chat Panels
-
-- [Visual Studio Code extension](https://github.com/devchat-ai/devchat-vscode) from [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=merico.devchat).
-
-- [IntelliJ Platform plugin](https://github.com/devchat-ai/devchat-intellij) from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/23258-devchat).
-
-### ChatMark
-
-Documentation: https://docs.devchat.ai/chatmark-markdown-spec.
-
-### IDE Services
+3. Install dependencies:
+```bash
+poetry install
+```
 
 ## Quick Start
 
-For GUI, install our [IDE extension or plugin](https://docs.devchat.ai/quick-start/installation).
+1. Set up your configuration:
+```bash
+poetry run devchat config setup
+```
 
-For CLI:
-- Install Python 3.8+ and [pip](https://pip.pypa.io/en/stable/installation/).
-- Install DevChat by running: `pip install devchat`.
-- Set your [OpenAI API Key](https://platform.openai.com/account/api-keys) by running `export OPENAI_API_KEY="[sk-...]"` (or DevChat access key).
-- To access help, use the command: `devchat --help` or `devchat prompt --help`.
+2. Analyze a Python file:
+```bash
+poetry run devchat assist analyze path/to/your/file.py
+```
+
+3. Ask a coding question:
+```bash
+poetry run devchat assist ask "How do I implement a binary search in Python?"
+```
+
+4. Generate tests for a file:
+```bash
+poetry run devchat assist generate-tests path/to/your/file.py --output tests/test_file.py
+```
+
+## Workflows
+
+DevChat supports custom workflows for automating coding tasks. Here's how to use them:
+
+1. Create a workflow:
+```bash
+poetry run devchat workflow create my_workflow --steps examples/refactor_workflow.yaml
+```
+
+2. List available workflows:
+```bash
+poetry run devchat workflow list
+```
+
+3. Run a workflow:
+```bash
+poetry run devchat workflow run my_workflow --file path/to/your/file.py
+```
+
+## Configuration
+
+Manage your DevChat configuration:
+
+1. Set a configuration value:
+```bash
+poetry run devchat config set model gpt-4
+```
+
+2. Get a configuration value:
+```bash
+poetry run devchat config get model
+```
+
+3. List all configuration:
+```bash
+poetry run devchat config list
+```
+
+## Examples
+
+### Code Analysis
+```bash
+poetry run devchat assist analyze src/example.py
+```
+
+### Test Generation
+```bash
+poetry run devchat assist generate-tests src/example.py --output tests/test_example.py
+```
+
+### Custom Workflow
+```bash
+# Create workflow
+poetry run devchat workflow create refactor --steps examples/refactor_workflow.yaml
+
+# Run workflow
+poetry run devchat workflow run refactor --file src/example.py
+```
 
 ## Contributing
 
-- Repositories:
-  - The core library and CLI: https://github.com/devchat-ai/devchat
-  - System default workflows: https://github.com/devchat-ai/workflows
-  - Visual Studio Code extension: https://github.com/devchat-ai/devchat-vscode
-  - IntelliJ Platform plugin: https://github.com/devchat-ai/devchat-intellij
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- Issues and pull request are welcome: https://github.com/devchat-ai/devchat/issues
+## License
 
-- Join our [Discord](https://discord.gg/9t3yrbBUXD)!
-
-## What is Prompt-Centric Software Development (PCSD)?
-
-- The traditional code-centric paradigm is evolving. Stay ahead of the curve with DevChat.
-
-- Write prompts to create code. Transform prompts into all the artifacts in software engineering.
-
-  <img width="600" alt="image" src="https://github.com/devchat-ai/devchat/assets/592493/dd32e900-92fd-4fa4-8489-96ed17ab5e0e">
-
-  <sub>(This image is licensed by devchat.ai under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.)</sub>
-  
-- We like to call it DevPromptOps
-  
-  <img width="500" alt="image" src="https://github.com/devchat-ai/devchat/assets/592493/e8e1215b-53b0-4473-ab00-0665d33f204a">
-  
-  <sub>(This image is licensed by devchat.ai under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.)</sub>
-
-## Contact
-  
-Email: hello@devchat.ai
-
-We are creators of [Apache DevLake](https://devlake.apache.org/).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

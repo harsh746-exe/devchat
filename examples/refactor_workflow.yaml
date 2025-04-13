@@ -1,0 +1,27 @@
+name: refactor
+description: "Refactor Python code to improve quality and maintainability"
+steps:
+  - type: code_analysis
+    name: analyze_code
+    description: "Analyze the code for potential improvements"
+    parameters:
+      metrics:
+        - complexity
+        - style
+        - maintainability
+
+  - type: refactoring
+    name: suggest_improvements
+    description: "Suggest specific refactoring improvements"
+    parameters:
+      focus:
+        - naming
+        - structure
+        - patterns
+
+  - type: code_generation
+    name: apply_changes
+    description: "Generate refactored code"
+    parameters:
+      style: "pep8"
+      preserve_comments: true 

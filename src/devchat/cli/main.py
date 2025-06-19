@@ -1,4 +1,6 @@
 import click
+from dotenv import load_dotenv
+
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
@@ -13,6 +15,7 @@ from devchat.core.security.analyzer import SecurityAnalyzer
 from typing import Optional
 
 console = Console()
+load_dotenv()
 
 @click.group()
 @click.version_option()
@@ -35,7 +38,7 @@ def config():
     """Configuration management commands"""
     pass
 
-@cli.command()
+@cli.group()
 def security():
     """Security analysis commands"""
     pass
